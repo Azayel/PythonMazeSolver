@@ -4,8 +4,8 @@ from math import dist
 import random
 import pygame
 
-openList=[]
-closedList=[]
+openList = []
+closedList = []
 
 height = width = 1000
 dimension = 20
@@ -13,10 +13,10 @@ sq_size = width // dimension
 screen = pygame.display.set_mode((width,height))
 stack=[]
 generating = True
-start_cell_coord=(0,0)
-end_cell_coord=(dimension-1,dimension-1)
+start_cell_coord = (0,0)
+end_cell_coord = (dimension-1,dimension-1)
 back_path = []
-solved=False
+solved = False
 
 #Creating Class Field
 #Class Field has following tasks:
@@ -25,22 +25,22 @@ solved=False
 
 class Field():
     def __init__(self,size):
-        self.grid=[[Cell(i,j) for i in range(size)] for j in range(size)]
+        self.grid = [[Cell(i,j) for i in range(size)] for j in range(size)]
 
 
 class Cell():
     def __init__(self,r,c):
-        self.f=0
-        self.g=0
-        self.h=0
-        self.start_cell=False
-        self.end_cell=False
+        self.f = 0
+        self.g = 0
+        self.h = 0
+        self.start_cell = False
+        self.end_cell = False
         self.r = r
         self.c = c
-        self.visited=False
+        self.visited = False
         self.walls = [True,True,True,True] #TOP RIGHT BOTTOM LEFT
-        self.a_neighbors=[]
-        self.previous=None
+        self.a_neighbors = []
+        self.previous = None
     def wall(self):
         if self.visited:
             pygame.draw.rect(screen,pygame.Color("black"),pygame.Rect(self.c*sq_size,self.r*sq_size,sq_size,sq_size))
