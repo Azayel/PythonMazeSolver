@@ -1,15 +1,8 @@
-from calendar import c
 from dataclasses import field
-from dis import dis
-from glob import glob
 
 from math import dist
 import random
-from re import T
-from tkinter import Grid, Variable
-from turtle import left
 import pygame
-from requests import NullHandler 
 
 openList=[]
 closedList=[]
